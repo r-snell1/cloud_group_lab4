@@ -27,11 +27,13 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '16'  # Set your Node.js version here
-
+          node-version: '22'  # Make sure to use Node.js version 17 or later
+          
       - name: Install dependencies
-        run: npm install
-
+        run: |
+          node --experimental-structured-clone
+          npm install
+          
       - name: Build the app
         run: npm run build  # This generates the 'build' directory
 

@@ -33,7 +33,7 @@ jobs:
         run: npm install
           
       - name: Build the app
-        run: npm run build  # This generates the 'build' directory
+        run: npm run build  # This generates the 'dist' directory
 
       - name: Install OIDC Client from Core Package
         run: npm install @actions/core@1.6.0 @actions/http-client
@@ -55,7 +55,7 @@ jobs:
           action: "upload"
           app_location: "/"  # Root of the React app (default location)
           api_location: ""   # Leave empty if you don’t have a backend API
-          output_location: "build"  # Path to the build directory from the `npm run build` step
+          output_location: "dist"  # Path to the dist directory from the `npm run build` step
           github_id_token: ${{ steps.idtoken.outputs.result }}
 
   close_pull_request_job:
